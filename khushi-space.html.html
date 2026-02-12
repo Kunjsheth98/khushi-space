@@ -1,0 +1,1146 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khushi's Space</title>
+
+<style>
+body{
+margin:0;
+font-family:system-ui;
+overflow:hidden;
+transition:background 2s ease;
+background:linear-gradient(180deg,#1e1b4b,#6d28d9);
+color:white;
+}
+
+#scene{
+position:relative;
+height:100vh;
+width:100vw;
+overflow:hidden;
+}
+
+#controls{
+position:absolute;
+bottom:18px;
+width:100%;
+text-align:center;
+}
+
+button{
+padding:10px 14px;
+margin:6px;
+border:none;
+border-radius:20px;
+background:#e9d5ff;
+color:#4c1d95;
+font-weight:600;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+opacity:0.7;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
+}
+
+.flower{position:absolute;font-size:22px;}
+.teddy{position:absolute;font-size:50px;}
+
+.light{
+position:absolute;
+width:8px;
+height:8px;
+background:#fde68a;
+border-radius:50%;
+box-shadow:0 0 14px #fde68a;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{opacity:0.4;}
+to{opacity:1;}
+}
+
+.breathe{
+animation:breathe 5s ease-in-out infinite;
+}
+
+@keyframes breathe{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
+}
+
+/* Constellation text */
+.constellation{
+position:absolute;
+color:#fff;
+font-size:28px;
+letter-spacing:8px;
+opacity:0;
+transition:opacity 2s ease;
+text-shadow:0 0 12px #fff,0 0 20px #c084fc;
+}
+
+/* Hidden message */
+#message{
+position:absolute;
+top:40%;
+width:100%;
+text-align:center;
+font-size:18px;
+opacity:0;
+transition:opacity 2s ease;
+line-height:1.6;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="scene">
+<div id="message">
+10 months of us… ❤️<br>
+Not loud. Not rushed.<br>
+Just something real, something steady.<br><br>
+You are my peace.<br>
+And in every world, I will still find you.<br><br>
+-- Kunj
+</div>
+</div>
+
+<div id="controls">
+<button onclick="addStars()">✨ Stars</button>
+<button onclick="addFlowers()">🌸 Flowers</button>
+<button onclick="addLights()">🕯 Lights</button>
+<button onclick="addTeddy()">🧸 Teddy</button>
+<button onclick="showConstellation()">🌌 Sky</button>
+<button onclick="toggleDayNight()">🌗 Day/Night</button>
+<button onclick="stay()">💜 Stay</button>
+</div>
+
+<script>
+const scene=document.getElementById("scene");
+let interactionCount=0;
+let night=true;
+
+function randomPos(){
+return{
+x:Math.random()*window.innerWidth,
+y:Math.random()*window.innerHeight*0.8
+};
+}
+
+function trackInteraction(){
+interactionCount++;
+if(interactionCount===6){
+document.getElementById("message").style.opacity=1;
+}
+}
+
+function addStars(){
+for(let i=0;i<10;i++){
+let s=document.createElement("div");
+s.className="star";
+let p=randomPos();
+s.style.left=p.x+"px";
+s.style.top=p.y+"px";
+scene.appendChild(s);
+}
+trackInteraction();
+}
+
+function addFlowers(){
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+let p=randomPos();
+f.style.left=p.x+"px";
+f.style.top=p.y+"px";
+scene.appendChild(f);
+trackInteraction();
+}
+
+function addLights(){
+let l=document.createElement("div");
+l.className="light";
+let p=randomPos();
+l.style.left=p.x+"px";
+l.style.top=p.y+"px";
+scene.appendChild(l);
+trackInteraction();
+}
+
+function addTeddy(){
+let t=document.createElement("div");
+t.className="teddy";
+t.innerHTML="🧸";
+let p=randomPos();
+t.style.left=p.x+"px";
+t.style.top=p.y+"px";
+scene.appendChild(t);
+trackInteraction();
+}
+
+/* KHUSHI constellation */
+function showConstellation(){
+let text=document.createElement("div");
+text.className="constellation";
+text.innerText="KHUSHI";
+text.style.left="50%";
+text.style.top="25%";
+text.style.transform="translateX(-50%)";
+scene.appendChild(text);
+
+setTimeout(()=>{text.style.opacity=1;},200);
+trackInteraction();
+}
+
+/* Day/Night transition */
+function toggleDayNight(){
+if(night){
+document.body.style.background="linear-gradient(180deg,#fde68a,#fca5a5)";
+night=false;
+}else{
+document.body.style.background="linear-gradient(180deg,#1e1b4b,#6d28d9)";
+night=true;
+}
+trackInteraction();
+}
+
+/* Calm breathing mode */
+function stay(){
+scene.classList.add("breathe");
+trackInteraction();
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khushi's Space</title>
+
+<style>
+body{
+margin:0;
+font-family:system-ui;
+overflow:hidden;
+transition:background 2s ease;
+background:linear-gradient(180deg,#1e1b4b,#6d28d9);
+color:white;
+}
+
+#scene{
+position:relative;
+height:100vh;
+width:100vw;
+overflow:hidden;
+}
+
+#controls{
+position:absolute;
+bottom:18px;
+width:100%;
+text-align:center;
+}
+
+button{
+padding:10px 14px;
+margin:6px;
+border:none;
+border-radius:20px;
+background:#e9d5ff;
+color:#4c1d95;
+font-weight:600;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+opacity:0.7;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
+}
+
+.flower{position:absolute;font-size:22px;}
+.teddy{position:absolute;font-size:50px;}
+
+.light{
+position:absolute;
+width:8px;
+height:8px;
+background:#fde68a;
+border-radius:50%;
+box-shadow:0 0 14px #fde68a;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{opacity:0.4;}
+to{opacity:1;}
+}
+
+.breathe{
+animation:breathe 5s ease-in-out infinite;
+}
+
+@keyframes breathe{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
+}
+
+/* Constellation text */
+.constellation{
+position:absolute;
+color:#fff;
+font-size:28px;
+letter-spacing:8px;
+opacity:0;
+transition:opacity 2s ease;
+text-shadow:0 0 12px #fff,0 0 20px #c084fc;
+}
+
+/* Hidden message */
+#message{
+position:absolute;
+top:40%;
+width:100%;
+text-align:center;
+font-size:18px;
+opacity:0;
+transition:opacity 2s ease;
+line-height:1.6;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="scene">
+<div id="message">
+10 months of us… ❤️<br>
+Not loud. Not rushed.<br>
+Just something real, something steady.<br><br>
+You are my peace.<br>
+And in every world, I will still find you.<br><br>
+-- Kunj
+</div>
+</div>
+
+<div id="controls">
+<button onclick="addStars()">✨ Stars</button>
+<button onclick="addFlowers()">🌸 Flowers</button>
+<button onclick="addLights()">🕯 Lights</button>
+<button onclick="addTeddy()">🧸 Teddy</button>
+<button onclick="showConstellation()">🌌 Sky</button>
+<button onclick="toggleDayNight()">🌗 Day/Night</button>
+<button onclick="stay()">💜 Stay</button>
+</div>
+
+<script>
+const scene=document.getElementById("scene");
+let interactionCount=0;
+let night=true;
+
+function randomPos(){
+return{
+x:Math.random()*window.innerWidth,
+y:Math.random()*window.innerHeight*0.8
+};
+}
+
+function trackInteraction(){
+interactionCount++;
+if(interactionCount===6){
+document.getElementById("message").style.opacity=1;
+}
+}
+
+function addStars(){
+for(let i=0;i<10;i++){
+let s=document.createElement("div");
+s.className="star";
+let p=randomPos();
+s.style.left=p.x+"px";
+s.style.top=p.y+"px";
+scene.appendChild(s);
+}
+trackInteraction();
+}
+
+function addFlowers(){
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+let p=randomPos();
+f.style.left=p.x+"px";
+f.style.top=p.y+"px";
+scene.appendChild(f);
+trackInteraction();
+}
+
+function addLights(){
+let l=document.createElement("div");
+l.className="light";
+let p=randomPos();
+l.style.left=p.x+"px";
+l.style.top=p.y+"px";
+scene.appendChild(l);
+trackInteraction();
+}
+
+function addTeddy(){
+let t=document.createElement("div");
+t.className="teddy";
+t.innerHTML="🧸";
+let p=randomPos();
+t.style.left=p.x+"px";
+t.style.top=p.y+"px";
+scene.appendChild(t);
+trackInteraction();
+}
+
+/* KHUSHI constellation */
+function showConstellation(){
+let text=document.createElement("div");
+text.className="constellation";
+text.innerText="KHUSHI";
+text.style.left="50%";
+text.style.top="25%";
+text.style.transform="translateX(-50%)";
+scene.appendChild(text);
+
+setTimeout(()=>{text.style.opacity=1;},200);
+trackInteraction();
+}
+
+/* Day/Night transition */
+function toggleDayNight(){
+if(night){
+document.body.style.background="linear-gradient(180deg,#fde68a,#fca5a5)";
+night=false;
+}else{
+document.body.style.background="linear-gradient(180deg,#1e1b4b,#6d28d9)";
+night=true;
+}
+trackInteraction();
+}
+
+/* Calm breathing mode */
+function stay(){
+scene.classList.add("breathe");
+trackInteraction();
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khushi's Space</title>
+
+<style>
+body{
+margin:0;
+font-family:system-ui;
+overflow:hidden;
+transition:background 2s ease;
+background:linear-gradient(180deg,#1e1b4b,#6d28d9);
+color:white;
+}
+
+#scene{
+position:relative;
+height:100vh;
+width:100vw;
+overflow:hidden;
+}
+
+#controls{
+position:absolute;
+bottom:18px;
+width:100%;
+text-align:center;
+}
+
+button{
+padding:10px 14px;
+margin:6px;
+border:none;
+border-radius:20px;
+background:#e9d5ff;
+color:#4c1d95;
+font-weight:600;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+opacity:0.7;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
+}
+
+.flower{position:absolute;font-size:22px;}
+.teddy{position:absolute;font-size:50px;}
+
+.light{
+position:absolute;
+width:8px;
+height:8px;
+background:#fde68a;
+border-radius:50%;
+box-shadow:0 0 14px #fde68a;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{opacity:0.4;}
+to{opacity:1;}
+}
+
+.breathe{
+animation:breathe 5s ease-in-out infinite;
+}
+
+@keyframes breathe{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
+}
+
+/* Constellation text */
+.constellation{
+position:absolute;
+color:#fff;
+font-size:28px;
+letter-spacing:8px;
+opacity:0;
+transition:opacity 2s ease;
+text-shadow:0 0 12px #fff,0 0 20px #c084fc;
+}
+
+/* Hidden message */
+#message{
+position:absolute;
+top:40%;
+width:100%;
+text-align:center;
+font-size:18px;
+opacity:0;
+transition:opacity 2s ease;
+line-height:1.6;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="scene">
+<div id="message">
+10 months of us… ❤️<br>
+Not loud. Not rushed.<br>
+Just something real, something steady.<br><br>
+You are my peace.<br>
+And in every world, I will still find you.<br><br>
+-- Kunj
+</div>
+</div>
+
+<div id="controls">
+<button onclick="addStars()">✨ Stars</button>
+<button onclick="addFlowers()">🌸 Flowers</button>
+<button onclick="addLights()">🕯 Lights</button>
+<button onclick="addTeddy()">🧸 Teddy</button>
+<button onclick="showConstellation()">🌌 Sky</button>
+<button onclick="toggleDayNight()">🌗 Day/Night</button>
+<button onclick="stay()">💜 Stay</button>
+</div>
+
+<script>
+const scene=document.getElementById("scene");
+let interactionCount=0;
+let night=true;
+
+function randomPos(){
+return{
+x:Math.random()*window.innerWidth,
+y:Math.random()*window.innerHeight*0.8
+};
+}
+
+function trackInteraction(){
+interactionCount++;
+if(interactionCount===6){
+document.getElementById("message").style.opacity=1;
+}
+}
+
+function addStars(){
+for(let i=0;i<10;i++){
+let s=document.createElement("div");
+s.className="star";
+let p=randomPos();
+s.style.left=p.x+"px";
+s.style.top=p.y+"px";
+scene.appendChild(s);
+}
+trackInteraction();
+}
+
+function addFlowers(){
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+let p=randomPos();
+f.style.left=p.x+"px";
+f.style.top=p.y+"px";
+scene.appendChild(f);
+trackInteraction();
+}
+
+function addLights(){
+let l=document.createElement("div");
+l.className="light";
+let p=randomPos();
+l.style.left=p.x+"px";
+l.style.top=p.y+"px";
+scene.appendChild(l);
+trackInteraction();
+}
+
+function addTeddy(){
+let t=document.createElement("div");
+t.className="teddy";
+t.innerHTML="🧸";
+let p=randomPos();
+t.style.left=p.x+"px";
+t.style.top=p.y+"px";
+scene.appendChild(t);
+trackInteraction();
+}
+
+/* KHUSHI constellation */
+function showConstellation(){
+let text=document.createElement("div");
+text.className="constellation";
+text.innerText="KHUSHI";
+text.style.left="50%";
+text.style.top="25%";
+text.style.transform="translateX(-50%)";
+scene.appendChild(text);
+
+setTimeout(()=>{text.style.opacity=1;},200);
+trackInteraction();
+}
+
+/* Day/Night transition */
+function toggleDayNight(){
+if(night){
+document.body.style.background="linear-gradient(180deg,#fde68a,#fca5a5)";
+night=false;
+}else{
+document.body.style.background="linear-gradient(180deg,#1e1b4b,#6d28d9)";
+night=true;
+}
+trackInteraction();
+}
+
+/* Calm breathing mode */
+function stay(){
+scene.classList.add("breathe");
+trackInteraction();
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khushi's Space</title>
+
+<style>
+body{
+margin:0;
+font-family:system-ui;
+overflow:hidden;
+transition:background 2s ease;
+background:linear-gradient(180deg,#1e1b4b,#6d28d9);
+color:white;
+}
+
+#scene{
+position:relative;
+height:100vh;
+width:100vw;
+overflow:hidden;
+}
+
+#controls{
+position:absolute;
+bottom:18px;
+width:100%;
+text-align:center;
+}
+
+button{
+padding:10px 14px;
+margin:6px;
+border:none;
+border-radius:20px;
+background:#e9d5ff;
+color:#4c1d95;
+font-weight:600;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+opacity:0.7;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
+}
+
+.flower{position:absolute;font-size:22px;}
+.teddy{position:absolute;font-size:50px;}
+
+.light{
+position:absolute;
+width:8px;
+height:8px;
+background:#fde68a;
+border-radius:50%;
+box-shadow:0 0 14px #fde68a;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{opacity:0.4;}
+to{opacity:1;}
+}
+
+.breathe{
+animation:breathe 5s ease-in-out infinite;
+}
+
+@keyframes breathe{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
+}
+
+/* Constellation text */
+.constellation{
+position:absolute;
+color:#fff;
+font-size:28px;
+letter-spacing:8px;
+opacity:0;
+transition:opacity 2s ease;
+text-shadow:0 0 12px #fff,0 0 20px #c084fc;
+}
+
+/* Hidden message */
+#message{
+position:absolute;
+top:40%;
+width:100%;
+text-align:center;
+font-size:18px;
+opacity:0;
+transition:opacity 2s ease;
+line-height:1.6;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="scene">
+<div id="message">
+10 months of us… ❤️<br>
+Not loud. Not rushed.<br>
+Just something real, something steady.<br><br>
+You are my peace.<br>
+And in every world, I will still find you.<br><br>
+-- Kunj
+</div>
+</div>
+
+<div id="controls">
+<button onclick="addStars()">✨ Stars</button>
+<button onclick="addFlowers()">🌸 Flowers</button>
+<button onclick="addLights()">🕯 Lights</button>
+<button onclick="addTeddy()">🧸 Teddy</button>
+<button onclick="showConstellation()">🌌 Sky</button>
+<button onclick="toggleDayNight()">🌗 Day/Night</button>
+<button onclick="stay()">💜 Stay</button>
+</div>
+
+<script>
+const scene=document.getElementById("scene");
+let interactionCount=0;
+let night=true;
+
+function randomPos(){
+return{
+x:Math.random()*window.innerWidth,
+y:Math.random()*window.innerHeight*0.8
+};
+}
+
+function trackInteraction(){
+interactionCount++;
+if(interactionCount===6){
+document.getElementById("message").style.opacity=1;
+}
+}
+
+function addStars(){
+for(let i=0;i<10;i++){
+let s=document.createElement("div");
+s.className="star";
+let p=randomPos();
+s.style.left=p.x+"px";
+s.style.top=p.y+"px";
+scene.appendChild(s);
+}
+trackInteraction();
+}
+
+function addFlowers(){
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+let p=randomPos();
+f.style.left=p.x+"px";
+f.style.top=p.y+"px";
+scene.appendChild(f);
+trackInteraction();
+}
+
+function addLights(){
+let l=document.createElement("div");
+l.className="light";
+let p=randomPos();
+l.style.left=p.x+"px";
+l.style.top=p.y+"px";
+scene.appendChild(l);
+trackInteraction();
+}
+
+function addTeddy(){
+let t=document.createElement("div");
+t.className="teddy";
+t.innerHTML="🧸";
+let p=randomPos();
+t.style.left=p.x+"px";
+t.style.top=p.y+"px";
+scene.appendChild(t);
+trackInteraction();
+}
+
+/* KHUSHI constellation */
+function showConstellation(){
+let text=document.createElement("div");
+text.className="constellation";
+text.innerText="KHUSHI";
+text.style.left="50%";
+text.style.top="25%";
+text.style.transform="translateX(-50%)";
+scene.appendChild(text);
+
+setTimeout(()=>{text.style.opacity=1;},200);
+trackInteraction();
+}
+
+/* Day/Night transition */
+function toggleDayNight(){
+if(night){
+document.body.style.background="linear-gradient(180deg,#fde68a,#fca5a5)";
+night=false;
+}else{
+document.body.style.background="linear-gradient(180deg,#1e1b4b,#6d28d9)";
+night=true;
+}
+trackInteraction();
+}
+
+/* Calm breathing mode */
+function stay(){
+scene.classList.add("breathe");
+trackInteraction();
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khushi's Space</title>
+
+<style>
+body{
+margin:0;
+font-family:system-ui;
+overflow:hidden;
+transition:background 2s ease;
+background:linear-gradient(180deg,#1e1b4b,#6d28d9);
+color:white;
+}
+
+#scene{
+position:relative;
+height:100vh;
+width:100vw;
+overflow:hidden;
+}
+
+#controls{
+position:absolute;
+bottom:18px;
+width:100%;
+text-align:center;
+}
+
+button{
+padding:10px 14px;
+margin:6px;
+border:none;
+border-radius:20px;
+background:#e9d5ff;
+color:#4c1d95;
+font-weight:600;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+opacity:0.7;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
+}
+
+.flower{position:absolute;font-size:22px;}
+.teddy{position:absolute;font-size:50px;}
+
+.light{
+position:absolute;
+width:8px;
+height:8px;
+background:#fde68a;
+border-radius:50%;
+box-shadow:0 0 14px #fde68a;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{opacity:0.4;}
+to{opacity:1;}
+}
+
+.breathe{
+animation:breathe 5s ease-in-out infinite;
+}
+
+@keyframes breathe{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
+}
+
+/* Constellation text */
+.constellation{
+position:absolute;
+color:#fff;
+font-size:28px;
+letter-spacing:8px;
+opacity:0;
+transition:opacity 2s ease;
+text-shadow:0 0 12px #fff,0 0 20px #c084fc;
+}
+
+/* Hidden message */
+#message{
+position:absolute;
+top:40%;
+width:100%;
+text-align:center;
+font-size:18px;
+opacity:0;
+transition:opacity 2s ease;
+line-height:1.6;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="scene">
+<div id="message">
+10 months of us… ❤️<br>
+Not loud. Not rushed.<br>
+Just something real, something steady.<br><br>
+You are my peace.<br>
+And in every world, I will still find you.<br><br>
+-- Kunj
+</div>
+</div>
+
+<div id="controls">
+<button onclick="addStars()">✨ Stars</button>
+<button onclick="addFlowers()">🌸 Flowers</button>
+<button onclick="addLights()">🕯 Lights</button>
+<button onclick="addTeddy()">🧸 Teddy</button>
+<button onclick="showConstellation()">🌌 Sky</button>
+<button onclick="toggleDayNight()">🌗 Day/Night</button>
+<button onclick="stay()">💜 Stay</button>
+</div>
+
+<script>
+const scene=document.getElementById("scene");
+let interactionCount=0;
+let night=true;
+
+function randomPos(){
+return{
+x:Math.random()*window.innerWidth,
+y:Math.random()*window.innerHeight*0.8
+};
+}
+
+function trackInteraction(){
+interactionCount++;
+if(interactionCount===6){
+document.getElementById("message").style.opacity=1;
+}
+}
+
+function addStars(){
+for(let i=0;i<10;i++){
+let s=document.createElement("div");
+s.className="star";
+let p=randomPos();
+s.style.left=p.x+"px";
+s.style.top=p.y+"px";
+scene.appendChild(s);
+}
+trackInteraction();
+}
+
+function addFlowers(){
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+let p=randomPos();
+f.style.left=p.x+"px";
+f.style.top=p.y+"px";
+scene.appendChild(f);
+trackInteraction();
+}
+
+function addLights(){
+let l=document.createElement("div");
+l.className="light";
+let p=randomPos();
+l.style.left=p.x+"px";
+l.style.top=p.y+"px";
+scene.appendChild(l);
+trackInteraction();
+}
+
+function addTeddy(){
+let t=document.createElement("div");
+t.className="teddy";
+t.innerHTML="🧸";
+let p=randomPos();
+t.style.left=p.x+"px";
+t.style.top=p.y+"px";
+scene.appendChild(t);
+trackInteraction();
+}
+
+/* KHUSHI constellation */
+function showConstellation(){
+let text=document.createElement("div");
+text.className="constellation";
+text.innerText="KHUSHI";
+text.style.left="50%";
+text.style.top="25%";
+text.style.transform="translateX(-50%)";
+scene.appendChild(text);
+
+setTimeout(()=>{text.style.opacity=1;},200);
+trackInteraction();
+}
+
+/* Day/Night transition */
+function toggleDayNight(){
+if(night){
+document.body.style.background="linear-gradient(180deg,#fde68a,#fca5a5)";
+night=false;
+}else{
+document.body.style.background="linear-gradient(180deg,#1e1b4b,#6d28d9)";
+night=true;
+}
+trackInteraction();
+}
+
+/* Calm breathing mode */
+function stay(){
+scene.classList.add("breathe");
+trackInteraction();
+}
+</script>
+
+</body>
+</html>
